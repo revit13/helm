@@ -425,7 +425,7 @@ func (c *Configuration) Init(getter genericclioptions.RESTClientGetter, namespac
 	if err != nil {
 		panic(fmt.Sprintf("Unable to instantiate registry client: %v", err))
 	}
-	cfg.RegistryClient = registryClient
+	c.RegistryClient = registryClient
 
 	return err
 }
