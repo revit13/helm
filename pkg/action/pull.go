@@ -76,6 +76,10 @@ func NewPullWithOpts(opts ...PullOpt) *Pull {
 func (p *Pull) Run(chartRef string) (string, error) {
 	var out strings.Builder
 
+	if p.Settings == nil {
+		p.Settings = new(cli.EnvSettings)
+	}
+
 	c := downloader.ChartDownloader{
 		Out:     &out,
 		Keyring: p.Keyring,
