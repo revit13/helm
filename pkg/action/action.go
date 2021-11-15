@@ -417,15 +417,17 @@ func (cfg *Configuration) Init(getter genericclioptions.RESTClientGetter, namesp
 	cfg.Log = log
 
 	// Experimental: init registry client
-	var buf bytes.Buffer
-	registryClient, err := registry.NewClient(
-		registry.ClientOptWriter(&buf),
-	)
+	if cfg.RegistryClient == nil {
+		var buf bytes.Buffer
+		registryClient, err := registry.NewClient(
+			registry.ClientOptWriter(&buf),
+		)
 
-	if err != nil {
-		panic(fmt.Sprintf("Unable to instantiate registry client: %v", err))
+		if err != nil {
+			panic(fmt.Sprintf("Unable to instantiate registry client: %v", err))
+		}
+		cfg.RegistryClient = registryClient
 	}
-	cfg.RegistryClient = registryClient
 
 	return nil
 }
