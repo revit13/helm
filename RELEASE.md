@@ -16,7 +16,7 @@ git checkout tags/v3.7.2 -b release-3.7.2
 ## 2. Create a `fybrik-release-X.Y.Z` branch
 
 Based on the branch that was created in previous section, a new branch `fybrik-release-X.Y.Z` should be created 
-with additions to support OCI registry.
+with additions to support OCI registry. An example of such additions can be found in the [commit](https://github.com/fybrik/helm/commit/97ff5f5667c4040edf05e94a4d51ec6bbd5b44a2).
 
 ## 3. Create a [new release](https://github.com/fybrik/helm/releases/new) 
 
